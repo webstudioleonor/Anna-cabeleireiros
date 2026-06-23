@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio Nº1 HairStyle — Anna Dashchenko | Cabeleireiro em Carcavelos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --creme:#FAF8F5;
+    --dourado:#C9A96E;
+    --dourado-escuro:#B08D4F;
+    --escuro:#2C2C2C;
+    --cinza:#6b6b6b;
+    --branco:#ffffff;
+    --serif:'Cormorant Garamond', Georgia, serif;
+    --sans:'Jost', sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--escuro);background:var(--creme);line-height:1.7;font-weight:300;overflow-x:hidden}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.15}
+  a{text-decoration:none;color:inherit}
+  img{display:block;max-width:100%}
+  .container{max-width:1140px;margin:0 auto;padding:0 24px}
+  .btn{display:inline-block;background:var(--dourado);color:var(--branco);padding:14px 32px;border-radius:2px;font-family:var(--sans);font-weight:500;letter-spacing:1.5px;text-transform:uppercase;font-size:.78rem;transition:.3s;border:1px solid var(--dourado)}
+  .btn:hover{background:transparent;color:var(--dourado)}
+  .btn-outline{background:transparent;color:var(--escuro);border:1px solid var(--escuro)}
+  .btn-outline:hover{background:var(--escuro);color:var(--branco)}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,248,245,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,169,110,.2);transition:.3s}
+  nav .container{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .logo{font-family:var(--serif);font-size:1.5rem;font-weight:600;letter-spacing:.5px}
+  .logo span{color:var(--dourado)}
+  .logo small{display:block;font-family:var(--sans);font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--cinza);font-weight:400;margin-top:-4px}
+  .nav-links{display:flex;align-items:center;gap:34px;list-style:none}
+  .nav-links a{font-size:.82rem;letter-spacing:1px;text-transform:uppercase;font-weight:400;transition:.2s;position:relative}
+  .nav-links a:not(.btn):hover{color:var(--dourado)}
+  .nav-links a:not(.btn)::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--dourado);transition:.3s}
+  .nav-links a:not(.btn):hover::after{width:100%}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+  .burger span{width:26px;height:2px;background:var(--escuro);transition:.3s}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;align-items:center;position:relative;background:linear-gradient(rgba(20,15,10,.45),rgba(20,15,10,.55)),url('https://picsum.photos/seed/hairsalon99/1600/1000') center/cover;color:var(--branco)}
+  .hero-inner{max-width:720px}
+  .hero .eyebrow{font-size:.8rem;letter-spacing:4px;text-transform:uppercase;color:var(--dourado);margin-bottom:22px;font-weight:400}
+  .hero h1{font-size:clamp(2.8rem,7vw,5rem);font-weight:500;margin-bottom:24px;color:#fff}
+  .hero h1 em{font-style:italic;color:var(--dourado)}
+  .hero p{font-size:1.15rem;font-weight:300;margin-bottom:38px;max-width:520px;color:#f0ece6}
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+  .hero .btn-outline{color:#fff;border-color:#fff}
+  .hero .btn-outline:hover{background:#fff;color:var(--escuro)}
+  .rating-badge{display:inline-flex;align-items:center;gap:8px;margin-top:36px;font-size:.9rem;color:#f0ece6}
+  .rating-badge .stars{color:var(--dourado);letter-spacing:2px}
+
+  /* SECTION base */
+  section{padding:110px 0}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 64px}
+  .section-head .eyebrow{font-size:.78rem;letter-spacing:4px;text-transform:uppercase;color:var(--dourado);margin-bottom:16px;font-weight:500}
+  .section-head h2{font-size:clamp(2rem,4.5vw,2.9rem);margin-bottom:18px}
+  .section-head p{color:var(--cinza);font-size:1.05rem}
+
+  /* SOBRE */
+  .sobre{background:var(--branco)}
+  .sobre .grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+  .sobre-img{position:relative}
+  .sobre-img img{border-radius:2px;width:100%;height:520px;object-fit:cover}
+  .sobre-img::before{content:'';position:absolute;top:-18px;left:-18px;width:120px;height:120px;border-top:2px solid var(--dourado);border-left:2px solid var(--dourado);z-index:-1}
+  .sobre-img::after{content:'';position:absolute;bottom:-18px;right:-18px;width:120px;height:120px;border-bottom:2px solid var(--dourado);border-right:2px solid var(--dourado);z-index:-1}
+  .sobre-text .eyebrow{font-size:.78rem;letter-spacing:4px;text-transform:uppercase;color:var(--dourado);margin-bottom:16px;font-weight:500;display:block}
+  .sobre-text h2{font-size:clamp(2rem,4vw,2.7rem);margin-bottom:24px}
+  .sobre-text p{color:var(--cinza);margin-bottom:18px;font-size:1.05rem}
+  .signature{font-family:var(--serif);font-size:1.7rem;font-style:italic;color:var(--dourado);margin-top:14px}
+
+  /* SERVIÇOS */
+  .servicos .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .serv-card{background:var(--branco);padding:42px 32px;border-radius:2px;border:1px solid rgba(201,169,110,.18);transition:.35s;text-align:center}
+  .serv-card:hover{transform:translateY(-8px);box-shadow:0 24px 50px rgba(44,44,44,.08);border-color:var(--dourado)}
+  .serv-icon{width:64px;height:64px;margin:0 auto 22px;border-radius:50%;background:var(--creme);display:flex;align-items:center;justify-content:center;font-size:1.7rem}
+  .serv-card h3{font-size:1.5rem;margin-bottom:12px}
+  .serv-card p{color:var(--cinza);font-size:.95rem;margin-bottom:18px}
+  .serv-price{font-family:var(--serif);color:var(--dourado);font-size:1.15rem;font-weight:600;font-style:italic}
+
+  /* GALERIA */
+  .galeria{background:var(--branco)}
+  .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .gal-grid a{position:relative;overflow:hidden;border-radius:2px;aspect-ratio:1}
+  .gal-grid img{width:100%;height:100%;object-fit:cover;transition:.5s}
+  .gal-grid a:hover img{transform:scale(1.08)}
+  .gal-grid a::after{content:'\2197';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(201,169,110,.85);color:#fff;font-size:1.6rem;opacity:0;transition:.3s}
+  .gal-grid a:hover::after{opacity:1}
+
+  /* MARCAÇÕES (CTA band) */
+  .marcacoes{background:linear-gradient(rgba(44,44,44,.82),rgba(44,44,44,.82)),url('https://picsum.photos/seed/salonbg42/1600/700') center/cover;color:#fff;text-align:center}
+  .marcacoes h2{font-size:clamp(2.2rem,5vw,3.2rem);margin-bottom:20px;color:#fff}
+  .marcacoes h2 em{font-style:italic;color:var(--dourado)}
+  .marcacoes p{font-size:1.1rem;color:#e8e4de;max-width:560px;margin:0 auto 16px}
+  .marcacoes .phone{font-family:var(--serif);font-size:2.4rem;color:var(--dourado);font-weight:600;margin:18px 0 30px;display:inline-block}
+
+  /* CONTACTOS */
+  .contactos .grid{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--branco);border-radius:2px;overflow:hidden;border:1px solid rgba(201,169,110,.18)}
+  .contact-info{padding:60px 50px}
+  .contact-info h2{font-size:2.3rem;margin-bottom:30px}
+  .info-row{display:flex;gap:18px;align-items:flex-start;margin-bottom:26px}
+  .info-row .ic{font-size:1.3rem;color:var(--dourado);width:32px;flex-shrink:0;text-align:center;margin-top:2px}
+  .info-row h4{font-family:var(--sans);font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--cinza);font-weight:500;margin-bottom:4px}
+  .info-row p{color:var(--escuro);font-size:1.02rem}
+  .info-row a:hover{color:var(--dourado)}
+  .horario span{display:flex;justify-content:space-between;max-width:280px;padding:3px 0;font-size:.98rem}
+  .horario span b{font-weight:500}
+  .map-wrap{min-height:480px}
+  .map-wrap iframe{width:100%;height:100%;border:0;filter:grayscale(.3) contrast(1.05)}
+
+  /* FOOTER */
+  footer{background:var(--escuro);color:#bdb8b0;padding:64px 0 28px;text-align:center}
+  footer .logo{color:#fff;margin-bottom:18px;display:inline-block}
+  footer .logo small{color:var(--dourado)}
+  .social{display:flex;gap:18px;justify-content:center;margin:24px 0 30px}
+  .social a{width:42px;height:42px;border:1px solid rgba(201,169,110,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--dourado);transition:.3s;font-size:1.1rem}
+  .social a:hover{background:var(--dourado);color:#fff}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;margin-top:8px;font-size:.82rem;color:#807c75;letter-spacing:.5px}
+
+  /* fade-in */
+  .reveal{opacity:0;transform:translateY(28px);transition:.8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* mobile call bar */
+  .call-bar{display:none}
+
+  @media(max-width:880px){
+    .nav-links{position:fixed;top:78px;right:-100%;flex-direction:column;background:var(--creme);width:75%;height:calc(100vh - 78px);padding:40px 30px;gap:26px;box-shadow:-10px 0 40px rgba(0,0,0,.1);transition:.4s;align-items:flex-start}
+    .nav-links.open{right:0}
+    .burger{display:flex}
+    .sobre .grid,.contactos .grid{grid-template-columns:1fr}
+    .servicos .grid{grid-template-columns:1fr 1fr}
+    .gal-grid{grid-template-columns:repeat(2,1fr)}
+    .map-wrap{min-height:340px}
+    section{padding:80px 0}
+    .contact-info{padding:44px 30px}
+  }
+  @media(max-width:520px){
+    .servicos .grid{grid-template-columns:1fr}
+    .hero-cta{flex-direction:column;align-items:stretch}
+    .hero-cta .btn{text-align:center}
+    .call-bar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:1000;background:var(--dourado);color:#fff;align-items:center;justify-content:center;gap:10px;padding:15px;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:.85rem;box-shadow:0 -6px 20px rgba(0,0,0,.12)}
+    body{padding-bottom:54px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="#inicio" class="logo">Studio <span>Nº1</span><small>HairStyle · Anna Dashchenko</small></a>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#contactos">Contactos</a></li>
+      <li><a href="tel:+351912345678" class="btn">Marcar Agora</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="inicio">
+  <div class="container">
+    <div class="hero-inner reveal">
+      <p class="eyebrow">Cabeleireiro · Carcavelos</p>
+      <h1>O teu cabelo,<br>a nossa <em>arte</em>.</h1>
+      <p>Cortes, cor e cuidado num espaço intimista onde cada cliente é único. Bem-vinda ao Studio Nº1.</p>
+      <div class="hero-cta">
+        <a href="tel:+351912345678" class="btn">Marcar Agora</a>
+        <a href="#servicos" class="btn btn-outline">Ver Serviços</a>
+      </div>
+      <div class="rating-badge">
+        <span class="stars">★★★★★</span> <span>4.9 · Avaliações Google</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="container">
+    <div class="grid">
+      <div class="sobre-img reveal">
+        <img loading="lazy" src="https://picsum.photos/seed/hairstylist7/700/760" alt="Studio Nº1 HairStyle">
+      </div>
+      <div class="sobre-text reveal">
+        <span class="eyebrow">Sobre nós</span>
+        <h2>Um espaço seu, em Carcavelos</h2>
+        <p>O Studio Nº1 HairStyle nasceu da paixão da Anna Dashchenko por transformar e valorizar a beleza natural de cada pessoa. Mais do que um salão, é um espaço acolhedor onde o tempo é dedicado inteiramente a si.</p>
+        <p>Combinamos técnica, produtos de qualidade e uma atenção personalizada para que saia sempre a sentir-se renovada e confiante. Aqui, cada corte e cada cor são pensados ao detalhe.</p>
+        <p class="signature">Anna Dashchenko</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="servicos" id="servicos">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">O que fazemos</p>
+      <h2>Os nossos serviços</h2>
+      <p>Soluções pensadas para si, com a qualidade e o cuidado que merece.</p>
+    </div>
+    <div class="grid">
+      <div class="serv-card reveal"><div class="serv-icon">✂️</div><h3>Corte & Brushing</h3><p>Cortes femininos e masculinos com acabamento e brushing à medida do seu estilo.</p><span class="serv-price">Marque para saber mais</span></div>
+      <div class="serv-card reveal"><div class="serv-icon">🎨</div><h3>Coloração</h3><p>Cor, madeixas, balayage e mechas com produtos que cuidam e dão brilho.</p><span class="serv-price">Marque para saber mais</span></div>
+      <div class="serv-card reveal"><div class="serv-icon">💆‍♀️</div><h3>Tratamentos</h3><p>Hidratação profunda, queratina e reconstrução para um cabelo saudável.</p><span class="serv-price">Marque para saber mais</span></div>
+      <div class="serv-card reveal"><div class="serv-icon">💍</div><h3>Penteados</h3><p>Penteados para noivas, eventos e ocasiões especiais com acabamento impecável.</p><span class="serv-price">Marque para saber mais</span></div>
+      <div class="serv-card reveal"><div class="serv-icon">🧴</div><h3>Alisamento</h3><p>Alisamentos e tratamentos de frizz para um cabelo liso, suave e disciplinado.</p><span class="serv-price">Marque para saber mais</span></div>
+      <div class="serv-card reveal"><div class="serv-icon">💇‍♂️</div><h3>Barba & Cavalheiros</h3><p>Cortes masculinos e arranjo de barba com precisão e estilo.</p><span class="serv-price">Marque para saber mais</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section class="galeria" id="galeria">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Galeria</p>
+      <h2>Trabalhos do Studio</h2>
+      <p>Alguns dos resultados que criamos para os nossos clientes.</p>
+    </div>
+    <div class="gal-grid reveal">
+      <a href="#"><img loading="lazy" src="https://picsum.photos/seed/hair11/500/500" alt="Trabalho 1"></a>
+      <a href="#"><img loading="lazy" src="https://picsum.photos/seed/hair22/500/500" alt="Trabalho 2"></a>
+      <a href="#"><img loading="lazy" src="https://picsum.photos/seed/hair33/500/500" alt="Trabalho 3"></a>
+      <a href="#"><img loading="lazy" src="https://picsum.photos/seed/hair44/500/500" alt="Trabalho 4"></a>
+      <a href="#"><img loading="lazy" src="https://picsum.photos/seed/hair55/500/500" alt="Trabalho 5"></a>
+      <a href="#"><img loading="lazy" src="https://picsum.photos/seed/hair66/500/500" alt="Trabalho 6"></a>
+      <a href="#"><img loading="lazy" src="https://picsum.photos/seed/hair77/500/500" alt="Trabalho 7"></a>
+      <a href="#"><img loading="lazy" src="https://picsum.photos/seed/hair88/500/500" alt="Trabalho 8"></a>
+    </div>
+  </div>
+</section>
+
+<!-- MARCAÇÕES -->
+<section class="marcacoes">
+  <div class="container reveal">
+    <h2>Pronta para a sua <em>transformação</em>?</h2>
+    <p>Marque a sua visita por telefone. Teremos todo o gosto em recebê-la.</p>
+    <a href="tel:+351912345678" class="phone">912 345 678</a>
+    <div><a href="tel:+351912345678" class="btn">Ligue para Marcar</a></div>
+  </div>
+</section>
+
+<!-- CONTACTOS -->
+<section class="contactos" id="contactos">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Visite-nos</p>
+      <h2>Onde estamos</h2>
+    </div>
+    <div class="grid reveal">
+      <div class="contact-info">
+        <h2>Contactos</h2>
+        <div class="info-row"><div class="ic">📍</div><div><h4>Morada</h4><p>Carcavelos, Cascais<br>Distrito de Lisboa</p></div></div>
+        <div class="info-row"><div class="ic">📞</div><div><h4>Telefone</h4><p><a href="tel:+351912345678">912 345 678</a></p></div></div>
+        <div class="info-row"><div class="ic">🕒</div><div><h4>Horário</h4>
+          <div class="horario">
+            <span><b>Seg – Sex</b><span>09:00 – 19:00</span></span>
+            <span><b>Sábado</b><span>09:00 – 18:00</span></span>
+            <span><b>Domingo</b><span>Encerrado</span></span>
+          </div>
+        </div></div>
+        <a href="tel:+351912345678" class="btn" style="margin-top:14px">Marcar Agora</a>
+      </div>
+      <div class="map-wrap">
+        <iframe loading="lazy" src="https://www.google.com/maps?q=Studio%20N%C2%BA1%20HairStyle%20Carcavelos&z=15&output=embed" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <a href="#inicio" class="logo">Studio <span style="color:var(--dourado)">Nº1</span><small>HairStyle · Anna Dashchenko</small></a>
+    <div class="social">
+      <a href="#" aria-label="Instagram">◎</a>
+      <a href="#" aria-label="Facebook">f</a>
+      <a href="tel:+351912345678" aria-label="Telefone">✆</a>
+    </div>
+    <p>Carcavelos, Cascais · 912 345 678</p>
+    <div class="foot-bottom">© 2026 Studio Nº1 HairStyle — Anna Dashchenko. Todos os direitos reservados.</div>
+  </div>
+</footer>
+
+<a href="tel:+351912345678" class="call-bar">📞 Ligar — Marcar Agora</a>
+
+<script>
+  const burger=document.getElementById('burger'),links=document.getElementById('navlinks');
+  burger.addEventListener('click',()=>{links.classList.toggle('open');});
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
